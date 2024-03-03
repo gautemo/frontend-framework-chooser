@@ -9,7 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "@shikijs/markdown-it": "^1.1.7",
+    "@unhead/vue": "^1.8.10",
+    "@vueuse/core": "^10.9.0",
+    "install": "^0.13.0",
+    "shiki": "^1.1.7",
+    "unocss": "^0.58.5",
+    "unplugin-vue-markdown": "^0.26.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
