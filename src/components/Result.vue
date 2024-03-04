@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { score } from '../store';
-
-console.log(score.value)
 </script>
 
 <template>

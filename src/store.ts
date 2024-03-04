@@ -123,28 +123,28 @@ export const score = computed(() => {
     preactScore *= (store.value.dx / 100)
   }
   if(store.value.innovation) { // based on my impresion of innovation and stability
-    reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.05
-    vueScore += (100 - Math.abs(75 - store.value.innovation)) * 0.05
-    angularScore += (100 - Math.abs(90 - store.value.innovation)) * 0.05
-    svelteScore += (100 - Math.abs(90 - store.value.innovation)) * 0.05
-    solidScore += (100 - Math.abs(40 - store.value.innovation)) * 0.05
-    preactScore += (100 - Math.abs(40 - store.value.innovation)) * 0.05
+    reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.03
+    vueScore += (100 - Math.abs(75 - store.value.innovation)) * 0.03
+    angularScore += (100 - Math.abs(90 - store.value.innovation)) * 0.03
+    svelteScore += (100 - Math.abs(90 - store.value.innovation)) * 0.03
+    solidScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
+    preactScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
   }
   if(store.value.perf) {
-    reactScore += (store.value.perf / 100) * 0.9
-    vueScore += (store.value.perf / 100) * 3
-    angularScore += (store.value.perf / 100) * 0.8
-    svelteScore += (store.value.perf / 100) * 5
-    solidScore += (store.value.perf / 100) * 5
+    reactScore += (store.value.perf / 100) * 2
+    vueScore += (store.value.perf / 100) * 4
+    angularScore += (store.value.perf / 100) * 1.5
+    svelteScore += (store.value.perf / 100) * 6
+    solidScore += (store.value.perf / 100) * 6
     preactScore += (store.value.perf / 100) * 4
   }
   if(store.value.popular) {
-    reactScore += (store.value.popular / 100) * 5
-    vueScore += (store.value.popular / 100) * 3
+    reactScore += (store.value.popular / 100) * 7
+    vueScore += (store.value.popular / 100) * 4
     angularScore += (store.value.popular / 100) * 3
-    svelteScore += (store.value.popular / 100) * 0.5
-    solidScore += (store.value.popular / 100) * 1
-    preactScore += (store.value.popular / 100) * 2
+    svelteScore += (store.value.popular / 100) * 1
+    solidScore += (store.value.popular / 100) * 0.5
+    preactScore += (store.value.popular / 100) * 3
   }
   return [
     { name: 'React', score: reactScore },
