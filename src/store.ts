@@ -120,8 +120,6 @@ export const score = computed(() => {
     preactScore += 0.5 // moving away from it with signals
   }
 
-  console.log(vueScore, svelteScore)
-
   reactScore = reactScore * (store.value.dx / 100)
   vueScore = vueScore * (store.value.dx / 100)
   angularScore = angularScore * (store.value.dx / 100)
@@ -129,8 +127,6 @@ export const score = computed(() => {
   solidScore = solidScore * (store.value.dx / 100)
   preactScore = preactScore * (store.value.dx / 100)
 
-  console.log(vueScore, svelteScore)
-  
   // based on my impresion of innovation and stability
   reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.03
   vueScore += (100 - Math.abs(75 - store.value.innovation)) * 0.03
@@ -138,7 +134,6 @@ export const score = computed(() => {
   svelteScore += (100 - Math.abs(90 - store.value.innovation)) * 0.03
   solidScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
   preactScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
-  console.log(vueScore, svelteScore)
   
   reactScore += (store.value.perf / 100) * 2
   vueScore += (store.value.perf / 100) * 4
@@ -146,7 +141,6 @@ export const score = computed(() => {
   svelteScore += (store.value.perf / 100) * 6
   solidScore += (store.value.perf / 100) * 6
   preactScore += (store.value.perf / 100) * 4
-  console.log(vueScore, svelteScore)
   
   reactScore += (store.value.popular / 100) * 7
   vueScore += (store.value.popular / 100) * 4
@@ -154,7 +148,6 @@ export const score = computed(() => {
   svelteScore += (store.value.popular / 100) * 1
   solidScore += (store.value.popular / 100) * 0.5
   preactScore += (store.value.popular / 100) * 3
-  console.log(vueScore, svelteScore)
 
   return [
     { name: 'React', score: reactScore, logo: 'i-logos-react' },
