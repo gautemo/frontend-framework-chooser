@@ -8,7 +8,7 @@ Angular keeps the TypeScript file separate from the HTML and CSS. You can inline
 
 ### JSX
 
-JSX is a syntax where you are allowed to include HTML elements inside the JavaScript syntax. You have the full power of JavaScript which is good. The bad is that it could be a bit muddled, causing a mess.
+JSX is a syntax where you are allowed to include HTML elements inside the JavaScript syntax. You have the full power of JavaScript which is good. The bad is that it could be a bit tangled.
 
 Not many know this, but Vue also allows [JSX syntax](https://github.com/vuejs/babel-plugin-jsx).
 

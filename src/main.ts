@@ -9,6 +9,10 @@ import Form3 from './components/Form3.vue'
 import Form4 from './components/Form4.vue'
 import Form5 from './components/Form5.vue'
 import Form6 from './components/Form6.vue'
+import Form7 from './components/Form7.vue'
+import Form8 from './components/Form8.vue'
+import Form9 from './components/Form9.vue'
+import Result from './components/Result.vue'
 import 'uno.css'
 
 const router = createRouter({
@@ -21,6 +25,10 @@ const router = createRouter({
     { path: '/4', component: Form4 },
     { path: '/5', component: Form5 },
     { path: '/6', component: Form6 },
+    { path: '/7', component: Form7 },
+    { path: '/8', component: Form8 },
+    { path: '/9', component: Form9 },
+    { path: '/result', component: Result },
   ]
 })
 

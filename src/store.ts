@@ -63,6 +63,7 @@ export const score = computed(() => {
   switch(store.value.component) {
     case 'separate':
       angularScore++
+      vueScore += 0.3 // possible, but has a cost and not that widespread
       break
     case 'jsx':
       reactScore++
@@ -72,7 +73,7 @@ export const score = computed(() => {
       break
     case 'sfc':
       vueScore++
-      angularScore += 0.8 // possible, not that widespread
+      angularScore += 0.8 // not exactly SFC syntax, but achievable with inlining HTML and CSS
       svelteScore++
       break
   }
@@ -113,37 +114,37 @@ export const score = computed(() => {
     angularScore++
     preactScore += 0.5 // moving away from it with signals
   }
-  if(store.value.innovation) { // based on my impresion of innovation and stability
-    reactScore += Math.abs(0.2 - store.value.innovation) * 2
-    vueScore += Math.abs(0.75 - store.value.innovation) * 2
-    angularScore += Math.abs(0.9 - store.value.innovation) * 2
-    svelteScore += Math.abs(0.9 - store.value.innovation) * 2
-    solidScore += Math.abs(0.4 - store.value.innovation) * 2
-    preactScore += Math.abs(0.4 - store.value.innovation) * 2
-  }
   if(store.value.dx) {
-    reactScore *= store.value.dx
-    vueScore *= store.value.dx
-    angularScore *= store.value.dx
-    svelteScore *= store.value.dx
-    solidScore *= store.value.dx
-    preactScore *= store.value.dx
+    reactScore *= (store.value.dx / 100)
+    vueScore *= (store.value.dx / 100)
+    angularScore *= (store.value.dx / 100)
+    svelteScore *= (store.value.dx / 100)
+    solidScore *= (store.value.dx / 100)
+    preactScore *= (store.value.dx / 100)
+  }
+  if(store.value.innovation) { // based on my impresion of innovation and stability
+    reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.05
+    vueScore += (100 - Math.abs(75 - store.value.innovation)) * 0.05
+    angularScore += (100 - Math.abs(90 - store.value.innovation)) * 0.05
+    svelteScore += (100 - Math.abs(90 - store.value.innovation)) * 0.05
+    solidScore += (100 - Math.abs(40 - store.value.innovation)) * 0.05
+    preactScore += (100 - Math.abs(40 - store.value.innovation)) * 0.05
   }
   if(store.value.perf) {
-    reactScore += store.value.perf * 0.9
-    vueScore += store.value.perf * 3
-    angularScore += store.value.perf * 0.8
-    svelteScore += store.value.perf * 5
-    solidScore += store.value.perf * 5
-    preactScore += store.value.perf * 4
+    reactScore += (store.value.perf / 100) * 0.9
+    vueScore += (store.value.perf / 100) * 3
+    angularScore += (store.value.perf / 100) * 0.8
+    svelteScore += (store.value.perf / 100) * 5
+    solidScore += (store.value.perf / 100) * 5
+    preactScore += (store.value.perf / 100) * 4
   }
   if(store.value.popular) {
-    reactScore += store.value.popular * 5
-    vueScore += store.value.popular * 3
-    angularScore += store.value.popular * 3
-    svelteScore += store.value.popular * 0.5
-    solidScore += store.value.popular * 1
-    preactScore += store.value.popular * 2
+    reactScore += (store.value.popular / 100) * 5
+    vueScore += (store.value.popular / 100) * 3
+    angularScore += (store.value.popular / 100) * 3
+    svelteScore += (store.value.popular / 100) * 0.5
+    solidScore += (store.value.popular / 100) * 1
+    preactScore += (store.value.popular / 100) * 2
   }
   return [
     { name: 'React', score: reactScore },
@@ -152,5 +153,5 @@ export const score = computed(() => {
     { name: 'Svelte', score: svelteScore },
     { name: 'Preact', score: preactScore },
     { name: 'Solid', score: solidScore },
-  ]
+  ].toSorted((a,b) => b.score - a.score)
 })
