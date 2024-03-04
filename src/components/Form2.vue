@@ -12,11 +12,11 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>Do you want to use JavaScript or TypeScript?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.typescript === 'js'" @change="store.typescript = 'js'"/>
+        <input type="radio" name="typescript" value="yes" :checked="store.typescript === 'js'" @change="store.typescript = 'js'"/>
         JavaScript
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.typescript === 'ts'" @change="store.typescript = 'ts'" />
+        <input type="radio" name="typescript" value="no" :checked="store.typescript === 'ts'" @change="store.typescript = 'ts'" />
         TypeScript
       </label>
     </fieldset>

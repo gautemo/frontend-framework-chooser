@@ -4,7 +4,7 @@ import { score } from '../store';
 
 <template>
   <section>
-    <p>You should choose {{ score[0].name }}</p>
+    <div class="result">You should choose {{ score[0].name }}<div :class="score[0].logo"></div></div>
     <ol>
       <li v-for="s of score" :key="s.name">
         <label>
@@ -21,4 +21,16 @@ import { score } from '../store';
   </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.result > div {
+  display: inline-block;
+  font-size: 2rem;
+}
+</style>

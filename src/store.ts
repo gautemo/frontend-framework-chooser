@@ -115,12 +115,12 @@ export const score = computed(() => {
     preactScore += 0.5 // moving away from it with signals
   }
   if(store.value.dx) {
-    reactScore *= (store.value.dx / 100)
-    vueScore *= (store.value.dx / 100)
-    angularScore *= (store.value.dx / 100)
-    svelteScore *= (store.value.dx / 100)
-    solidScore *= (store.value.dx / 100)
-    preactScore *= (store.value.dx / 100)
+    reactScore = reactScore * (store.value.dx / 100)
+    vueScore = vueScore * (store.value.dx / 100)
+    angularScore = angularScore * (store.value.dx / 100)
+    svelteScore = svelteScore * (store.value.dx / 100)
+    solidScore = solidScore * (store.value.dx / 100)
+    preactScore = preactScore * (store.value.dx / 100)
   }
   if(store.value.innovation) { // based on my impresion of innovation and stability
     reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.03
@@ -147,11 +147,11 @@ export const score = computed(() => {
     preactScore += (store.value.popular / 100) * 3
   }
   return [
-    { name: 'React', score: reactScore },
-    { name: 'Vue', score: vueScore },
-    { name: 'Angular', score: angularScore },
-    { name: 'Svelte', score: svelteScore },
-    { name: 'Preact', score: preactScore },
-    { name: 'Solid', score: solidScore },
+    { name: 'React', score: reactScore, logo: 'i-logos-react' },
+    { name: 'Vue', score: vueScore, logo: 'i-logos-vue' },
+    { name: 'Angular', score: angularScore, logo: 'i-logos-angular-icon' },
+    { name: 'Svelte', score: svelteScore, logo: 'i-logos-svelte-icon' },
+    { name: 'Preact', score: preactScore, logo: 'i-logos-preact' },
+    { name: 'Solid', score: solidScore, logo: 'i-logos-solidjs-icon' },
   ].toSorted((a,b) => b.score - a.score)
 })

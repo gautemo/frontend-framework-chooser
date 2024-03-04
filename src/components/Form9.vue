@@ -12,15 +12,15 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>What is most important?</legend>
       <label>
-        <input type="range" name="innovation" :value="store.dx" @change="e => store.dx = Number((e.target as HTMLInputElement).value)"/>
+        <input type="range" min="1" :value="store.dx" @change="e => store.dx = Number((e.target as HTMLInputElement).value)"/>
         Developer Experience
       </label>
       <label>
-        <input type="range" name="innovation" :value="store.perf" @change="e => store.perf = Number((e.target as HTMLInputElement).value)"/>
+        <input type="range" min="1" :value="store.perf" @change="e => store.perf = Number((e.target as HTMLInputElement).value)"/>
         Performance
       </label>
       <label>
-        <input type="range" name="innovation" :value="store.popular" @change="e => store.popular = Number((e.target as HTMLInputElement).value)"/>
+        <input type="range" min="1" :value="store.popular" @change="e => store.popular = Number((e.target as HTMLInputElement).value)"/>
         Ecosystem
       </label>
     </fieldset>

@@ -12,19 +12,19 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>How do you want to write the dynamic parts of your template?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.template === 'jsx'" @change="store.template = 'jsx'"/>
+        <input type="radio" name="template" value="yes" :checked="store.template === 'jsx'" @change="store.template = 'jsx'"/>
         JSX
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.template === 'directive'" @change="store.template = 'directive'" />
+        <input type="radio" name="template" value="no" :checked="store.template === 'directive'" @change="store.template = 'directive'" />
         Directive
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.template === 'control-flow'" @change="store.template = 'control-flow'" />
+        <input type="radio" name="template" value="no" :checked="store.template === 'control-flow'" @change="store.template = 'control-flow'" />
         Control flow/Logic blocks
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.template === 'dedicated-components'" @change="store.template = 'dedicated-components'" />
+        <input type="radio" name="template" value="no" :checked="store.template === 'dedicated-components'" @change="store.template = 'dedicated-components'" />
         Dedicated components
       </label>
     </fieldset>

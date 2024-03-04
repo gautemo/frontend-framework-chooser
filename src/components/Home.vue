@@ -10,6 +10,15 @@
     <button>Let's go</button>
   </router-link>
 </div>
+<section class="frameworks">
+  Frameworks: 
+  <div class="i-logos-react"></div>
+  <div class="i-logos-vue"></div>
+  <div class="i-logos-angular-icon"></div>
+  <div class="i-logos-svelte-icon"></div>
+  <div class="i-logos-preact"></div>
+  <div class="i-logos-solidjs-icon"></div>
+</section>
 </template>
 
 <style scoped>
@@ -32,5 +41,16 @@ div {
 
 div > a {
   width: fit-content;
+}
+
+.frameworks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.frameworks > div {
+  display: inline-block;
 }
 </style>

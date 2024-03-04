@@ -12,7 +12,7 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>Stability and innovation?</legend>
       <label>
-        <input type="range" name="innovation" :value="store.innovation" @change="e => store.innovation = Number((e.target as HTMLInputElement).value)"/>
+        <input type="range" min="1" :value="store.innovation" @change="e => store.innovation = Number((e.target as HTMLInputElement).value)"/>
         I want a lot of innovation, improvements and frequent changes
       </label>
     </fieldset>

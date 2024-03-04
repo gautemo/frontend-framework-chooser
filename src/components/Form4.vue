@@ -12,15 +12,15 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>How do you want to write your component?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.component === 'separate'" @change="store.component = 'separate'"/>
+        <input type="radio" name="component" value="yes" :checked="store.component === 'separate'" @change="store.component = 'separate'"/>
         I want to keep HTML, JavaScript, and CSS in separate files
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.component === 'jsx'" @change="store.component = 'jsx'" />
+        <input type="radio" name="component" value="no" :checked="store.component === 'jsx'" @change="store.component = 'jsx'" />
         JSX
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.component === 'sfc'" @change="store.component = 'sfc'" />
+        <input type="radio" name="component" value="no" :checked="store.component === 'sfc'" @change="store.component = 'sfc'" />
         Single File Component
       </label>
     </fieldset>

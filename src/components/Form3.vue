@@ -12,11 +12,11 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>What suits your mental model?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.componentType === 're-run'" @change="store.componentType = 're-run'"/>
+        <input type="radio" name="componentType" value="yes" :checked="store.componentType === 're-run'" @change="store.componentType = 're-run'"/>
         UI as a function of state
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.componentType === 'create'" @change="store.componentType = 'create'" />
+        <input type="radio" name="componentType" value="no" :checked="store.componentType === 'create'" @change="store.componentType = 'create'" />
         UI create function
       </label>
     </fieldset>

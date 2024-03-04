@@ -12,11 +12,11 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>Do you want signals?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.signals" @change="store.signals = true"/>
+        <input type="radio" name="signals" value="yes" :checked="store.signals" @change="store.signals = true"/>
         Yes, please!
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.signals === false" @change="store.signals = false" />
+        <input type="radio" name="signals" value="no" :checked="store.signals === false" @change="store.signals = false" />
         Nope.
       </label>
     </fieldset>

@@ -5,12 +5,17 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: #040D12;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  accent-color: #93B1A6;
+}
+
+dialog {
+  background-color: #040D12;
 }
 
 a {
@@ -42,12 +47,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #183D3D;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #93B1A6;
 }
 button:focus,
 button:focus-visible {
@@ -78,20 +83,34 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #040D12;
+    background-color: #ffffff;
+    accent-color: #5C8374;
+  }
+  dialog {
     background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #dadada;
+  }
+  button:hover {
+    border-color: #183D3D;
   }
 }
 
 fieldset {
   display: flex;
   flex-direction: column;
+  min-width: 400px;
+}
+
+@media (max-width: 450px) {
+  fieldset {
+    min-width: auto;
+  }
 }
 
 nav {
@@ -105,4 +124,8 @@ nav > a {
 
 nav > a > button {
   width: 100%;
+}
+
+dialog h2 {
+  margin-top: 1rem !important;
 }

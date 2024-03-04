@@ -12,11 +12,11 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>Mutability?</legend>
       <label>
-        <input type="radio" name="build" value="yes" :checked="store.mutable === false" @change="store.mutable = false"/>
+        <input type="radio" name="mutable" value="yes" :checked="store.mutable === false" @change="store.mutable = false"/>
         I prefer an immutable API
       </label>
       <label>
-        <input type="radio" name="build" value="no" :checked="store.mutable" @change="store.mutable = true" />
+        <input type="radio" name="mutable" value="no" :checked="store.mutable" @change="store.mutable = true" />
         I prefer a mutable API
       </label>
     </fieldset>
