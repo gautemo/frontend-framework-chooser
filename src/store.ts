@@ -5,8 +5,8 @@ type Store = {
   build?: boolean
   typescript?: 'js' | 'ts'
   componentType?: 're-run' | 'create'
-  component?: 'separate' | 'jsx' | 'sfc'
-  template?: 'jsx' | 'directive' | 'control-flow' | 'dedicated-components'
+  template?: 'html' | 'template-literals' | 'jsx' | 'sfc'
+  dynamicTemplate?: 'js' | 'directive' | 'control-flow' | 'dedicated-components'
   signals?: boolean
   mutable?: boolean
   innovation: number
@@ -29,6 +29,7 @@ export const score = computed(() => {
   let svelteScore = 0
   let solidScore = 0
   let preactScore = 0
+  let litScore = 0
   if(store.value.build) {
     reactScore++
     vueScore++
@@ -36,8 +37,10 @@ export const score = computed(() => {
     svelteScore++
     solidScore++
     preactScore++
+    litScore++
   } else {
     vueScore++
+    litScore++
     reactScore += 0.3 // possible, but has a cost and not that widespread
     preactScore += 0.3 // possible, but has a cost and not that widespread
   }
@@ -48,27 +51,35 @@ export const score = computed(() => {
     svelteScore++
     solidScore++
     preactScore++
+    litScore++
   } else {
     reactScore++
     vueScore++
     svelteScore++
     solidScore++
     preactScore++
+    litScore++
   }
   if(store.value.componentType === 're-run') {
     reactScore++
     preactScore++
+    litScore += 0.5 // some part of a lit component is created once, another part is a render function
   } else {
     vueScore++
     angularScore++
     svelteScore++
     solidScore++
     preactScore += 0.5 // signal state can avoid re-render
+    litScore += 0.5 // some part of a lit component is created once, another part is a render function
   }
-  switch(store.value.component) {
-    case 'separate':
+  switch(store.value.template) {
+    case 'html':
       angularScore++
       vueScore += 0.3 // possible, but has a cost and not that widespread
+      break
+    case 'template-literals':
+      angularScore++
+      litScore++
       break
     case 'jsx':
       reactScore++
@@ -78,14 +89,15 @@ export const score = computed(() => {
       break
     case 'sfc':
       vueScore++
-      angularScore += 0.8 // not exactly SFC syntax, but achievable with inlining HTML and CSS
       svelteScore++
       break
   }
-  switch(store.value.template) {
-    case 'jsx':
+  switch(store.value.dynamicTemplate) {
+    case 'js':
       reactScore++
       preactScore++
+      litScore++
+      vueScore += 0.8 // possible if jsx, not that widespread
       break
     case 'directive':
       vueScore++
@@ -107,11 +119,13 @@ export const score = computed(() => {
     preactScore++
   } else {
     reactScore++
+    litScore++
   }
   if(store.value.mutable) {
     vueScore++
     svelteScore++
     preactScore++
+    litScore++
     angularScore += 0.5 // moving away from it with signals
   } else {
     reactScore++
@@ -134,6 +148,7 @@ export const score = computed(() => {
   svelteScore += (100 - Math.abs(90 - store.value.innovation)) * 0.03
   solidScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
   preactScore += (100 - Math.abs(40 - store.value.innovation)) * 0.03
+  litScore += (100 - Math.abs(50 - store.value.innovation)) * 0.03
   
   reactScore += (store.value.perf / 100) * 2
   vueScore += (store.value.perf / 100) * 4
@@ -141,6 +156,7 @@ export const score = computed(() => {
   svelteScore += (store.value.perf / 100) * 6
   solidScore += (store.value.perf / 100) * 6
   preactScore += (store.value.perf / 100) * 4
+  litScore += (store.value.perf / 100) * 5
   
   reactScore += (store.value.popular / 100) * 7
   vueScore += (store.value.popular / 100) * 4
@@ -148,6 +164,7 @@ export const score = computed(() => {
   svelteScore += (store.value.popular / 100) * 1
   solidScore += (store.value.popular / 100) * 0.5
   preactScore += (store.value.popular / 100) * 3
+  litScore += (store.value.popular / 100) * 1.5
 
   return [
     { name: 'React', score: reactScore, logo: 'i-logos-react' },
@@ -156,5 +173,6 @@ export const score = computed(() => {
     { name: 'Svelte', score: svelteScore, logo: 'i-logos-svelte-icon' },
     { name: 'Preact', score: preactScore, logo: 'i-logos-preact' },
     { name: 'Solid', score: solidScore, logo: 'i-logos-solidjs-icon' },
+    { name: 'Lit', score: litScore, logo: 'i-logos-lit-icon' },
   ].toSorted((a,b) => b.score - a.score)
 })

@@ -10,6 +10,10 @@ Most frameworks require a build step, but there are a few exceptions.
 
 Vue is a progressive framework making it easy to start by just importing it from a CDN. Though it adds extra kB's compared to a built website, 55 kB vs less than 20kB.
 
+### Lit
+
+Lit can be used without a build step, but then you can't use decorators (atleast not until the [TC39 proposal](https://github.com/tc39/proposal-decorators) is implemented) and the syntax is a bit more verbose.
+
 ### React & Preact
 
 If you want to use the JSX syntax, it is possible without a build step, but it requires importing the babel script which is at 546 kB. So don't do this for production.

@@ -1,122 +1,21 @@
-## Dynamic template
+## About template
 
-Often you need to have some dynamic template. Conditional rendering and listing elements in an array.
+There are mulitple formats of how you can write the template for a component.
+
+### HTML file
+
+Angular keeps the TypeScript file separate from the HTML and CSS. Although you can inline the HTML and CSS
+
+### Template literals
+
+With template literals, the backticks `, you can write the template in a string and the editor (maybe with a plugin) will give you syntax highlighting.
 
 ### JSX
 
-If you know how JavaScript works, you can leverage it to what the render function should return. Meaning there are multiple ways to achive the same outcome. Multiple possibilities are good for flexibility, but it can also lead to confusing about which to choose.
+JSX is a syntax where you are allowed to include HTML elements inside the JavaScript syntax. You have the full power of JavaScript which is good. The bad is that it could be a bit tangled.
 
-#### Conditional rendering
+Not many know this, but Vue also allows [JSX syntax](https://github.com/vuejs/babel-plugin-jsx).
 
-Option 1:
-```jsx
-function render() {
-  if(isDay) {
-    return <p>🌞</p>
-  }
-}
-```
+### Single File Component
 
-Option 2:
-```jsx
-function render() {
-  return <>
-    { isDay && <p>🌞</p> }
-  </>
-}
-```
-
-Option 3:
-```jsx
-function render() {
-  return <>
-    { isDay ? <p>🌞</p> : null }
-  </>
-}
-```
-
-#### List
-
-```jsx
-<ul>
-  {todos.map(todo => 
-    <li>{todo.text}</li>
-  )}
-</ul >
-```
-
-### Directive
-
-#### Conditional rendering
-
-```html
-<p v-if="isDay">☀️</p>
-```
-
-#### List
-
-```html
-<ul>
-  <li v-for="todo in todos">{{todo.text}}</li>
-</ul>
-```
-
-### Control flow/Logic blocks
-
-#### Conditional rendering
-
-Svelte:
-```svelte
-{#if isDay}
-  <p>☀️</p>
-{/if}
-```
-
-Angular:
-```html
-@if (isDay) {
-  <p>☀️</p>
-}
-```
-
-#### List
-
-Svelte:
-```svelte
-<ul>
-	{#each todos as todo}
-		<li>{todo.text}</li>
-	{/each}
-</ul>
-```
-
-Angular:
-```html
-<ul>
-  @for (todo of todos) {
-    <li>{{ todo.text }}</li>
-  }
-</ul>
-```
-
-### Dedicated components
-
-Solid uses JSX, but since the component will only run once it needs dedicated components to control dynamic content.
-
-#### Conditional rendering
-
-```jsx
-<Show when={isDay}>
-  <p>☀️</p>
-</Show>
-```
-
-#### List
-
-```jsx
-<For each={todos()}>
-  {todo =>
-    <li>{todo.text}</li>
-  }
-</For>
-```
+SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. Keeping them separate but close together have the benefit of not mixing the languages (keeping it clean), but still have close proximity. A downside is if you would like to have multiple components in the same file, you would have to accept some alternative syntax.

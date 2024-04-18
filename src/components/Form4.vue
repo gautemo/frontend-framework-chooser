@@ -1,26 +1,30 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { store } from '../store'
-import Docs from '../docs/component.md'
+import Docs from '../docs/template.md'
 
-const valid = computed(() => store.value.component !== undefined)
+const valid = computed(() => store.value.template !== undefined)
 const dialog = ref<HTMLDialogElement | null>(null)
 </script>
 
 <template>
   <form>
     <fieldset>
-      <legend>How do you want to write your component?</legend>
+      <legend>How do you want to write your template?</legend>
       <label>
-        <input type="radio" name="component" value="yes" :checked="store.component === 'separate'" @change="store.component = 'separate'"/>
-        I want to keep HTML, JavaScript, and CSS in separate files
+        <input type="radio" name="component" value="yes" :checked="store.template === 'html'" @change="store.template = 'html'"/>
+        HTML file
       </label>
       <label>
-        <input type="radio" name="component" value="no" :checked="store.component === 'jsx'" @change="store.component = 'jsx'" />
+        <input type="radio" name="component" value="yes" :checked="store.template === 'template-literals'" @change="store.template = 'template-literals'"/>
+        Template literals
+      </label>
+      <label>
+        <input type="radio" name="component" value="no" :checked="store.template === 'jsx'" @change="store.template = 'jsx'" />
         JSX
       </label>
       <label>
-        <input type="radio" name="component" value="no" :checked="store.component === 'sfc'" @change="store.component = 'sfc'" />
+        <input type="radio" name="component" value="no" :checked="store.template === 'sfc'" @change="store.template = 'sfc'" />
         Single File Component
       </label>
     </fieldset>

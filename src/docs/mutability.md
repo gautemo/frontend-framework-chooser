@@ -61,3 +61,5 @@ const country = reactive({
 })
 country.counties.Oslo.population = 710_000
 ```
+
+Note that in some frameworks, Preact and Lit, you mutate the same state but you require an assignment for the reactivity to trigger.

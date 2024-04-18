@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { store } from '../store'
-import Docs from '../docs/template.md'
+import Docs from '../docs/dynamictemplate.md'
 
 const valid = computed(() => store.value.template !== undefined)
 const dialog = ref<HTMLDialogElement | null>(null)
@@ -12,19 +12,19 @@ const dialog = ref<HTMLDialogElement | null>(null)
     <fieldset>
       <legend>How do you want to write the dynamic parts of your template?</legend>
       <label>
-        <input type="radio" name="template" value="yes" :checked="store.template === 'jsx'" @change="store.template = 'jsx'"/>
-        JSX
+        <input type="radio" name="template" value="yes" :checked="store.dynamicTemplate === 'js'" @change="store.dynamicTemplate = 'js'"/>
+        JavaScript
       </label>
       <label>
-        <input type="radio" name="template" value="no" :checked="store.template === 'directive'" @change="store.template = 'directive'" />
+        <input type="radio" name="template" value="no" :checked="store.dynamicTemplate === 'directive'" @change="store.dynamicTemplate = 'directive'" />
         Directive
       </label>
       <label>
-        <input type="radio" name="template" value="no" :checked="store.template === 'control-flow'" @change="store.template = 'control-flow'" />
+        <input type="radio" name="template" value="no" :checked="store.dynamicTemplate === 'control-flow'" @change="store.dynamicTemplate = 'control-flow'" />
         Control flow/Logic blocks
       </label>
       <label>
-        <input type="radio" name="template" value="no" :checked="store.template === 'dedicated-components'" @change="store.template = 'dedicated-components'" />
+        <input type="radio" name="template" value="no" :checked="store.dynamicTemplate === 'dedicated-components'" @change="store.dynamicTemplate = 'dedicated-components'" />
         Dedicated components
       </label>
     </fieldset>

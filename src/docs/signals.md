@@ -70,3 +70,5 @@ function Counter() {
   );
 }
 ```
+
+Maybe signals will be a [JavaScript standard](https://github.com/tc39/proposal-signals) in some years?

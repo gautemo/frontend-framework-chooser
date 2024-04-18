@@ -18,6 +18,7 @@
   <div class="i-logos-svelte-icon"></div>
   <div class="i-logos-preact"></div>
   <div class="i-logos-solidjs-icon"></div>
+  <div class="i-logos-lit-icon"></div>
 </section>
 </template>
 
