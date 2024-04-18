@@ -140,6 +140,7 @@ export const score = computed(() => {
   svelteScore = svelteScore * (store.value.dx / 100)
   solidScore = solidScore * (store.value.dx / 100)
   preactScore = preactScore * (store.value.dx / 100)
+  litScore = litScore * (store.value.dx / 100)
 
   // based on my impresion of innovation and stability
   reactScore += (100 - Math.abs(20 - store.value.innovation)) * 0.03
